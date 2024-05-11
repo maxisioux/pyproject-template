@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "python-sample-project"
+name = "pyproject-template"
 version = "0.1.0"
-description = "python-sample-project"
+description = "python-project-template"
 authors = ["Sioux <codemaxi@163.com>"]
 readme = "README.md"
 license="MIT"
-repository = "https://github.com/codemaxi520/python-sample-project.git"
-documentation = "https://github.com/codemaxi520/python-sample-project/blob/master/README.md"
-packages = [{include = "root_package_name"}]
+repository = "https://github.com/maxisioux/pyproject-template.git"
+documentation = "https://github.com/maxisioux/pyproject-template/blob/master/README.md"
+packages = [{include = "pytemplate"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

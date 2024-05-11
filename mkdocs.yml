@@ -1,9 +1,9 @@
-site_name: Sioux's Site
+site_name: Pyproject-template Guide
 site_author: Sioux
-site_description: Sioux's Private Site
+site_description: A python project template guide
 copyright: Copyright &copy; 2023-2024 Sioux
-repo_url: https://github.com/codemaxi520/python-sample-project.git
-repo_name: codemaxi520/site
+repo_url: https://github.com/maxisioux/pyproject-template.git
+repo_name: maxisioux/pyproject-template
 
 theme:
   name: material
@@ -36,24 +36,16 @@ plugins:
 
 nav:
 - Home: index.md
-- Projects:
-    - projects/index.md
-    - Project1:
-        - Getting started: writing-your-docs.md
-        - Setup: writing-your-docs.md'
-    - Project2:
-        - Getting started: writing-your-docs.md
-- Notes:
-    - notes/index.md
-    - Python:
-        - Getting started: writing-your-docs.md
-    - C++:
-        - Getting started: writing-your-docs.md
+- Integrations:
+    - Getting started: integrations/get_start.md
+- Tutorials:
+    - Poetry: tutorials/poetry.md
+    - Pytest: tutorials/pytest.md
+    - Ruff: tutorials/ruff.md
 - About:
-    - License: license.md
-    - Release Notes: release-notes.md
-    - About: about.md
-
+    - About: about/about.md
+    - Release Notes: about/release-notes.md
+    - License: about/license.md
 
 markdown_extensions:
   - pymdownx.highlight:
@@ -75,4 +67,4 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/codemaxi520/python-sample-project
+      link: https://github.com/maxisioux
