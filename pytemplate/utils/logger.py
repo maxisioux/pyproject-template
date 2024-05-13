@@ -5,10 +5,11 @@
 @Desc: It's a logger base on loguru.
 @Refer: https://loguru.readthedocs.io/en/stable/overview.html
 """
-from functools import wraps
+import datetime
 import os
 import sys
-import datetime
+from functools import wraps
+
 import loguru
 
 """
@@ -25,7 +26,7 @@ Python loguru有以下优点
 # rotation='00:00': 设置每天 0 点新创建一个 log 文件
 # retention='15 days': 设置日志文件最长保留 15 天
 # enqueue = True: Asynchronous, Thread-safe, Multiprocess-safe
-# backtrace=True: Logging exceptions by logger.exception("What?!") 
+# backtrace=True: Logging exceptions by logger.exception("What?!")
 """
 
 ###############################################################################
@@ -78,7 +79,7 @@ class Logger:
         self.set_icon()
         self.add_console()
         self.add_file()
-        
+
         loguru.logger.info(self.get_log_path())
 
     def set_icon(self):
@@ -94,7 +95,7 @@ class Logger:
         if project_path is None:
             # 当前项目文件的，绝对真实路径
             # 路径，一个点代表当前目录，两个点代表当前目录的上级目录
-            project_path = os.path.realpath('..')
+            project_path = os.path.realpath("..")
         # 返回当前项目路径
         return project_path
 
@@ -102,9 +103,9 @@ class Logger:
         # 项目目录
         project_path = self.get_project_path()
         # 项目日志目录
-        project_log_dir = os.path.join(project_path, 'log')
+        project_log_dir = os.path.join(project_path, "log")
         # 日志文件名
-        project_log_filename = 'app_{}.log'.format(datetime.date.today())
+        project_log_filename = f"app_{datetime.date.today()}.log"
         # 日志文件路径
         project_log_path = os.path.join(project_log_dir, project_log_filename)
         # 返回日志路径
@@ -120,7 +121,7 @@ class Logger:
             # 默认输出级别
             level=DEFAULT_LEVEL,
             # 默认输出格式
-            format=DEFAULT_FORMAT, 
+            format=DEFAULT_FORMAT,
             # 具有使日志记录调用非阻塞的优点
             enqueue=True,
             # logging 异常
@@ -136,11 +137,11 @@ class Logger:
             # 默认输出级别
             level=DEFAULT_LEVEL,
             # 默认输出格式
-            format=DEFAULT_FORMAT, 
+            format=DEFAULT_FORMAT,
             # 日志创建周期
-            rotation='00:00',
+            rotation="00:00",
             # 保存
-            retention='30 days',
+            retention="30 days",
             # 文件的压缩格式
             # compression='zip',
             # 编码格式
@@ -156,13 +157,13 @@ class Logger:
         return loguru.logger
 
 
-'''
+"""
 # 实例化日志类
-'''
+"""
 logger = Logger().get_logger
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     logger.success("success message")
     logger.trace("trace message")
     logger.debug("debug message")
@@ -170,7 +171,7 @@ if __name__ == '__main__':
     logger.warning("warning message")
     logger.error("error message")
     logger.critical("critical message")
-    
+
     try:
         a = 5 / 0
     except ZeroDivisionError:
@@ -182,5 +183,4 @@ if __name__ == '__main__':
     from project.logger import logger
     然后直接使用logger即可
     """
-    logger.info('----原始测试----')
-    
+    logger.info("----原始测试----")

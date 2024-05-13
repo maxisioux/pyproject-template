@@ -1,5 +1,6 @@
 from pytemplate.utils.logger import logger
 
+
 def test_demo():
     logger.success("success message")
     logger.trace("trace message")
